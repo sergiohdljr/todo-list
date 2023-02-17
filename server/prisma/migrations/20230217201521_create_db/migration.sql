@@ -1,0 +1,7 @@
+-- CreateTable
+CREATE TABLE "Tarefas" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "task" TEXT NOT NULL,
+    "created_At" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "is_Completed" BOOLEAN NOT NULL DEFAULT false
+);
