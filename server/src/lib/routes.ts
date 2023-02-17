@@ -18,4 +18,10 @@ export async function appRoutes(app: FastifyInstance) {
             }
         })
     })
+
+    app.get('/task', async () => {
+        const tasks = await prisma.tarefas.findMany()
+
+        return tasks
+    })
 }
