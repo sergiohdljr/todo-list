@@ -37,4 +37,30 @@ export async function appRoutes(app: FastifyInstance) {
             }
         })
     })
+
+    app.put('/toggleCompleteTask/:id', async (request) => {
+        const toggleCompleteSchema = z.object({
+            id: z.string()
+        })
+
+        const { id } = toggleCompleteSchema.parse(request.params)
+
+        const stateTask = await prisma.tarefas.findUnique({
+            select: {
+                is_Completed: true
+            },
+            where: {
+                id: id
+            }
+        })
+
+        await prisma.tarefas.update({
+            where: {
+                id: id
+            },
+            data: {
+                is_Completed: !stateTask?.is_Completed
+            }
+        })
+    })
 }
