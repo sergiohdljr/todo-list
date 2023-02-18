@@ -21,7 +21,20 @@ export async function appRoutes(app: FastifyInstance) {
 
     app.get('/task', async () => {
         const tasks = await prisma.tarefas.findMany()
-
         return tasks
+    })
+
+    app.delete('/deleteTask/:id', async (request) => {
+        const deleteTaskSchema = z.object({
+            id: z.string()
+        })
+
+        const { id } = deleteTaskSchema.parse(request.params)
+
+        await prisma.tarefas.delete({
+            where: {
+                id: id
+            }
+        })
     })
 }
