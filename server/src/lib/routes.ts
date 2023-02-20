@@ -23,7 +23,7 @@ export async function appRoutes(app: FastifyInstance) {
         return tasks
     })
 
-    app.get('/completedTasks', async (request) => {
+    app.get('/completedTasks', async () => {
         const completedTasks = await prisma.tarefas.findMany({
             where: {
                 is_Completed: true
@@ -80,9 +80,19 @@ export async function appRoutes(app: FastifyInstance) {
         const { id } = idSchemaDelete.parse(request.params)
 
         await prisma.tarefas.delete({
-            where:{
-                id:id
+            where: {
+                id: id
             }
         })
     })
+
+    app.delete('/deleteCompletedTasks', async () => {
+        await prisma.tarefas.deleteMany({
+            where: {
+                is_Completed: true
+            }
+        })
+    })
+
+    
 }
