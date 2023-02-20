@@ -4,7 +4,6 @@ import { prisma } from "./prisma";
 
 export async function appRoutes(app: FastifyInstance) {
 
-
     app.post('/createTask', async (request) => {
         const tarefasSchema = z.object({
             task: z.string(),
@@ -24,13 +23,12 @@ export async function appRoutes(app: FastifyInstance) {
         return tasks
     })
 
-    app.get('/completedTasks',async (request) => {
+    app.get('/completedTasks', async (request) => {
         const completedTasks = await prisma.tarefas.findMany({
-            where:{
+            where: {
                 is_Completed: true
             }
         })
-
         return completedTasks
     })
 
@@ -70,6 +68,20 @@ export async function appRoutes(app: FastifyInstance) {
             },
             data: {
                 is_Completed: !stateTask?.is_Completed
+            }
+        })
+    })
+
+    app.delete('/deleteTask/{:id}', async (request) => {
+        const idSchemaDelete = z.object({
+            id: z.string()
+        })
+
+        const { id } = idSchemaDelete.parse(request.params)
+
+        await prisma.tarefas.delete({
+            where:{
+                id:id
             }
         })
     })

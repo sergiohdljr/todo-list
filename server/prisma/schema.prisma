@@ -11,8 +11,8 @@ datasource db {
 }
 
 model Tarefas {
-  id String @id @default(uuid())
-  task String
-  created_At DateTime @default(now())
-  is_Completed Boolean @default(false)
+  id           String   @id @default(uuid())
+  task         String
+  created_At   DateTime @default(now())
+  is_Completed Boolean  @default(false)
 }
