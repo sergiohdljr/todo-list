@@ -14,6 +14,7 @@ export async function appRoutes(app: FastifyInstance) {
         await prisma.tarefas.create({
             data: {
                 task: task
+                
             }
         })
     })
@@ -94,5 +95,5 @@ export async function appRoutes(app: FastifyInstance) {
         })
     })
 
-    
+
 }
