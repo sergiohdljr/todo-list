@@ -14,5 +14,6 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 100vh;
         margin:0 auto;
+        background-color: ${props => props.theme.colors.background};
     }
  `
