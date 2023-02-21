@@ -10,6 +10,10 @@ declare module 'styled-components' {
             secundaryText: string;
             active: string;
             checkBackground: string;
+        },
+        imagens: {
+            backgroundImageMobile: string,
+            backgroundImageDestkop: string
         }
     }
 }

@@ -1,3 +1,6 @@
+import bgDarkMobile from "../../assets/bg-mobile-dark.jpg";
+import bgDarkDesktop from "../../assets/bg-mobile-dark.jpg";
+
 export default {
     title: 'dark',
 
@@ -8,5 +11,10 @@ export default {
         secundaryText: 'hsl(234, 11%, 52%)',
         active: 'hsl(220,98%,61%)',
         checkBackground: 'linear-gradient(to bottom right,hsl(192, 100%, 67%),hsl(280, 87%, 65%))',
+    },
+
+    imagens: {
+        backgroundImageMobile: `${bgDarkMobile}`,
+        backgroundImageDestkop: `${bgDarkDesktop}`
     }
 }

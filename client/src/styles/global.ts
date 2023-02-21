@@ -10,10 +10,19 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 18px;
         font-family: 'Josefin Sans', sans-serif;
     }
+
     #root{
         width: 100%;
         height: 100vh;
-        margin:0 auto;
-        background-color: ${props => props.theme.colors.background};
+        background-color: ${({ theme }) => theme.colors.background};
+        width: 100%;
+        background-image: url(${props => props.theme.imagens.backgroundImageMobile});
+        background-repeat: no-repeat;
+        background-size: auto;
+
+        @media screen and (min-width:376px){
+        height: 300px;
+        background-image: url(${props => props.theme.imagens.backgroundImageDestkop});
+ }
     }
  `
