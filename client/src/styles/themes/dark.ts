@@ -7,6 +7,6 @@ export default {
         text: 'hsl(234, 39%, 85%)',
         secundaryText: 'hsl(234, 11%, 52%)',
         active: 'hsl(220,98%,61%)',
-        checkBackground: 'linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)',
+        checkBackground: 'linear-gradient(to bottom right,hsl(192, 100%, 67%),hsl(280, 87%, 65%))',
     }
 }
