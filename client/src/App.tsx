@@ -1,3 +1,10 @@
+import { ContainerApp } from "./components/container";
+
 export const App = () => {
-  return <div>name</div>;
+  return( 
+  <ContainerApp>
+    <h2>hola</h2>
+  </ContainerApp>
+  )
 };
+

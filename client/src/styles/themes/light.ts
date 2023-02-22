@@ -6,8 +6,8 @@ export default {
     title: 'light',
 
     colors: {
-        background: 'hsl(0, 0%, 98%)',
-        app: 'hsl(236, 33%, 92%)',
+        background: 'hsl(236, 33%, 92%)',
+        app: 'hsl(0, 0%, 98%)',
         text: 'hsl(233, 11%, 84%)',
         secundaryText: 'hsl(236, 9%, 61%)',
         active: 'hsl(220,98%,61%)',
