@@ -1,5 +1,5 @@
 import bgDarkMobile from "../../assets/bg-mobile-dark.jpg";
-import bgDarkDesktop from "../../assets/bg-mobile-dark.jpg";
+import bgDarkDesktop from "../../assets/bg-desktop-dark.jpg";
 import lightThemeIcon from "../../assets/icon-sun.svg"
 
 export const darkTheme = {

@@ -25,8 +25,7 @@ export const GlobalStyle = createGlobalStyle`
         background-size: auto;
 
         @media screen and (min-width:376px){
-        height: 300px;
-        background-size: cover;
+        background-size: 100% 300px;
         background-image: url(${props => props.theme.imagens.backgroundImageDestkop});
  }
     }
