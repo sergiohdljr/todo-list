@@ -13,7 +13,8 @@ declare module 'styled-components' {
         },
         imagens: {
             backgroundImageMobile: string,
-            backgroundImageDestkop: string
+            backgroundImageDestkop: string,
+            iconTheme: string
         }
     }
 }

@@ -1,7 +1,8 @@
 import bgDarkMobile from "../../assets/bg-mobile-dark.jpg";
 import bgDarkDesktop from "../../assets/bg-mobile-dark.jpg";
+import lightThemeIcon from "../../assets/icon-sun.svg"
 
-export default {
+export const darkTheme = {
     title: 'dark',
 
     colors: {
@@ -15,6 +16,7 @@ export default {
 
     imagens: {
         backgroundImageMobile: `${bgDarkMobile}`,
-        backgroundImageDestkop: `${bgDarkDesktop}`
+        backgroundImageDestkop: `${bgDarkDesktop}`,
+        iconTheme: `${lightThemeIcon}`
     }
 }

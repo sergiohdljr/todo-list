@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing:border-box;
         font-size: 18px;
         font-family: 'Josefin Sans', sans-serif;
+        transition: all 0.8s ease;
     }
 
     #root{
