@@ -1,9 +1,15 @@
 import { Container } from "./style";
 
 type Icontainer = {
-    children?: JSX.Element
-}
+  header: JSX.Element
+  input: JSX.Element
+};
 
-export const ContainerApp = ({ children }: Icontainer ) => {
-  return <Container>{children}</Container>;
+export const ContainerApp = ({header,input}: Icontainer) => {
+  return (
+    <Container>
+        {header}
+        {input}
+    </Container>
+  );
 };

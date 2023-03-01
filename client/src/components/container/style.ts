@@ -6,4 +6,7 @@ export const Container = styled.div`
  height: 553px;
  margin: auto 0;
  background-color: transparent;
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
 `
