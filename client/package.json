@@ -9,10 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.11",
     "@types/styled-components": "^5.1.26",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.3",
     "styled-components": "^5.3.6",
+    "zod": "^3.20.6",
     "zustand": "^4.3.5"
   },
   "devDependencies": {

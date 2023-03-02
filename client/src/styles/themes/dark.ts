@@ -12,6 +12,7 @@ export const darkTheme = {
         secundaryText: 'hsl(234, 11%, 52%)',
         active: 'hsl(220,98%,61%)',
         checkBackground: 'linear-gradient(to bottom right,hsl(192, 100%, 67%),hsl(280, 87%, 65%))',
+        errorMessage:'#8B0000'
     },
 
     imagens: {

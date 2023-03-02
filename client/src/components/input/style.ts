@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Input = styled.div`
+export const Input = styled.form`
 width: 100%;
 height: 48px;
 display: flex;
@@ -16,14 +16,14 @@ height: 68px;
 }
 `
 
-export const Checked = styled.div`
+export const CheckedBox = styled.div`
     height:100%;
     background-color: transparent;
     display: flex;
     align-items: center;
 `
 
-export const Ball = styled.div`
+export const Check = styled.div`
    width: 21px;
    height: 21px;
    background-color: transparent;
@@ -42,4 +42,7 @@ export const InputField = styled.input`
         color: ${props => props.theme.colors.secundaryText};
     }
 `
-    
+export const ErrorMessage = styled.p`
+margin-top: 0.3rem;
+color: ${props=>props.theme.colors.errorMessage}
+`
