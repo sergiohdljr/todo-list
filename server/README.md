@@ -14,7 +14,7 @@ Como rodar o projeto na sua máquina
 ```
 ### 2. Instale as dependências 
 ```bash
-  cd todo-list
+  cd todo-list/server/
   npm install 
 ```
 ### 3. Iniciando o Servidor
