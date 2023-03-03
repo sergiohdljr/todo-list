@@ -1,15 +1,13 @@
 import { Container } from "./style";
 
 type Icontainer = {
-  header: JSX.Element
-  input: JSX.Element
+  children: React.ReactNode
 };
 
-export const ContainerApp = ({header,input}: Icontainer) => {
+export const ContainerApp = ({children}: Icontainer) => {
   return (
     <Container>
-        {header}
-        {input}
+        {children}
     </Container>
   );
 };

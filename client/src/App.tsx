@@ -11,7 +11,10 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <ContainerApp header={<Header />} input={<InputNewTask />} />
+      <ContainerApp>
+        <Header />
+        <InputNewTask />
+      </ContainerApp>
     </ThemeProvider>
   );
 };
