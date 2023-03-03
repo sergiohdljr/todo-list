@@ -44,5 +44,18 @@ export const InputField = styled.input`
 `
 export const ErrorMessage = styled.p`
 margin-top: 0.3rem;
-color: ${props=>props.theme.colors.errorMessage}
+color: ${props => props.theme.colors.errorMessage}
+`
+export const Spinner = styled.div`
+border: 2px solid ${props=>props.theme.colors.text};
+border-top: 2px solid ${props=>props.theme.colors.active};
+border-radius: 50%; 
+width: 21px;
+height: 21px;
+animation: spin 1s linear infinite;
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 `
