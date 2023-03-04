@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { IcheckedBox } from "../input/style";
 
 export const Tarefa = styled.div`
 width: 100%;
@@ -13,10 +14,11 @@ background-color: ${props=>props.theme.colors.app};
  }
 `
 
-export const TaskTitle = styled.p`
+export const TaskTitle = styled.p<IcheckedBox>`
 color: ${props=>props.theme.colors.secundaryText};
 flex: 1;
 display: flex;
 align-items: center;
 padding-top: 0.2rem;
+text-decoration:${props => props.isChecked ? "line-through" : null};
 `

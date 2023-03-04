@@ -9,19 +9,19 @@ import { api } from "./service/api";
 import { UsethemeStore } from "./store";
 import { GlobalStyle } from "./styles/global";
 
+export interface Tasks {
+  created_At?: string;
+  id: string;
+  is_Completed: boolean;
+  task: string;
+}
+
 export const App = () => {
   const { theme } = UsethemeStore();
 
-  interface getTasks {
-    created_At: string;
-    id: string;
-    is_Completed: boolean;
-    task: string;
-  }
-
   const getTask = () => api.get("/tasks").then((dados) => dados.data);
 
-  const { data: tasks } = useQuery<getTasks[]>(
+  const { data: tasks } = useQuery<Tasks[]>(
     "tasks",
     async () => await getTask()
   );
@@ -32,12 +32,20 @@ export const App = () => {
       <Wrapper>
         <Header />
         <InputNewTask />
-        <Container flex_D={"row"} h={"375px"} w={"100%"} border_r={"0.3rem"} max_h={"370px"} ovrflw={"scroll"}>
+        <Container
+          flex_D={"row"}
+          h={"375px"}
+          w={"100%"}
+          border_r={"0.3rem"}
+          max_h={"370px"}
+          ovrflw={"scroll"}
+        >
           {tasks &&
             tasks.map((task) => (
-              <Task
-                title={task.task}
-                is_completed={task.is_Completed}
+              <Task 
+                id={task.id}
+                task={task.task}
+                is_Completed={task.is_Completed}
                 key={task.id}
               />
             ))}

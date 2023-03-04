@@ -42,7 +42,7 @@ export const InputNewTask = () => {
     <div>
       <Input onSubmit={handleSubmit(OnSubmit)}>
         <CheckedBox>
-          <Check />
+          <Check isChecked={false} />
         </CheckedBox>
         <InputField
           placeholder="Digite uma nova tarefa..."

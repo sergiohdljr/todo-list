@@ -25,7 +25,7 @@ export const CheckedBox = styled.div`
     align-items: center;
 `
 
-interface IcheckedBox {
+export interface IcheckedBox {
     isChecked: boolean
 }
 
@@ -40,6 +40,7 @@ export const Check = styled.button<IcheckedBox>`
     ${props => props.isChecked ? 'linear-gradient(to bottom right,hsl(192, 100%, 67%),hsl(280, 87%, 65%))' : "tranparent"} ;
    background-repeat:no-repeat;
    background-position: center;
+   cursor: pointer;
 `
 
 export const InputField = styled.input`
