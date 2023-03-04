@@ -2,11 +2,15 @@ import styled from "styled-components";
 
 export const Tarefa = styled.div`
 width: 100%;
-height: 54px;
+min-height: 54px;
 display: flex;
 gap: 0.3rem;
 padding: 0.5rem;
 background-color: ${props=>props.theme.colors.app};
+
+ @media screen and (min-width:376px){
+    height: 66px;
+ }
 `
 
 export const TaskTitle = styled.p`

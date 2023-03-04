@@ -32,7 +32,7 @@ export const App = () => {
       <Wrapper>
         <Header />
         <InputNewTask />
-        <Container flex_D={"row"} h={"375px"} w={"100%"} border_r={"0.3rem"}>
+        <Container flex_D={"row"} h={"375px"} w={"100%"} border_r={"0.3rem"} max_h={"370px"} ovrflw={"scroll"}>
           {tasks &&
             tasks.map((task) => (
               <Task
