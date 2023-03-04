@@ -22,3 +22,18 @@ align-items: center;
 padding-top: 0.2rem;
 text-decoration:${props => props.isChecked ? "line-through" : null};
 `
+
+export const DeleteTask = styled.button`
+all: unset;
+width:25px;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+color:${props=>props.theme.colors.text};
+font-size: 0.8rem;
+font-weight: 200;
+cursor: pointer;
+
+
+`

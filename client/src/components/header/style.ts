@@ -12,7 +12,7 @@ flex-grow: 1;
 display: flex;
 align-items: center;
 text-transform: uppercase;
-color: ${props=>props.theme.colors.background};
+color: white;
 letter-spacing: 0.8rem;
 font-size: 1.5rem;
 font-weight: 700;

@@ -1,4 +1,11 @@
-import {Input,CheckedBox,Check,InputField,ErrorMessage,Spinner} from "./style";
+import {
+  Input,
+  CheckedBox,
+  Check,
+  InputField,
+  ErrorMessage,
+  Spinner,
+} from "./style";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -10,7 +17,7 @@ export const InputNewTask = () => {
   const schema = z.object({
     task: z
       .string()
-      .min(1, { message: "Digite a tarefa que deseja adicionar"}),
+      .min(1, { message: "Digite a tarefa que deseja adicionar" }),
   });
 
   type validationField = z.infer<typeof schema>;
@@ -25,7 +32,6 @@ export const InputNewTask = () => {
 
   const OnSubmit: SubmitHandler<validationField> = (data) => {
     setIsLoading(true);
-    console.log("carregamento iniciado");
     api
       .post("/createTask", {
         task: data.task,
@@ -34,6 +40,7 @@ export const InputNewTask = () => {
       .finally(() => {
         setTimeout(() => {
           setIsLoading(false);
+          location.reload();
         }, 900);
       });
   };
