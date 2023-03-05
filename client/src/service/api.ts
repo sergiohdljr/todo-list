@@ -13,3 +13,9 @@ export const postTask = async (data: validationField) => {
         })
         .then((response) => console.log(response.status))
 };
+
+export const ToggleCompleted = async (id: string) => {
+    return await api
+        .put(`toggleCompleteTask/${id}`)
+        .then((reponse) => console.log(reponse.status));
+};
