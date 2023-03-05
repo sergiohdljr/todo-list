@@ -9,9 +9,10 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
-import { postTask } from "../../service/api";
-import { useState } from "react";
 import { schema, validationField } from "./interfaces";
+import { useMutation } from "react-query";
+import { api, postTask } from "../../service/api";
+import { Client } from "../../service/queryClient";
 
 export const InputNewTask = () => {
   const {
@@ -20,11 +21,19 @@ export const InputNewTask = () => {
     formState: { errors },
   } = useForm<validationField>({ resolver: zodResolver(schema) });
 
-  const [isLoading, setIsLoading] = useState(false);
+  const addNewTask = useMutation({
+    mutationFn: async (data: validationField) => await postTask(data),
+    onSuccess: () => {
+      setTimeout(() => {
+        Client.invalidateQueries({ queryKey: ["tasks"] });
+      }, 900);
+    },
+  });
 
   const OnSubmit: SubmitHandler<validationField> = (data) => {
-    setIsLoading(true);
-    postTask(data, setIsLoading);
+    addNewTask.mutate({
+      task: data.task,
+    });
   };
 
   return (
@@ -38,7 +47,7 @@ export const InputNewTask = () => {
           type="text"
           {...register("task")}
         />
-        {isLoading ? <Spinner /> : null}
+        {addNewTask.isLoading ? <Spinner /> : null}
       </Input>
       {errors ? <ErrorMessage>{errors.task?.message}</ErrorMessage> : null}
     </div>
