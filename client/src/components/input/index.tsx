@@ -6,22 +6,14 @@ import {
   ErrorMessage,
   Spinner,
 } from "./style";
-import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
-import { api } from "../../service/api";
+import { postTask } from "../../service/api";
 import { useState } from "react";
+import { schema, validationField } from "./interfaces";
 
 export const InputNewTask = () => {
-  const schema = z.object({
-    task: z
-      .string()
-      .min(1, { message: "Digite a tarefa que deseja adicionar" }),
-  });
-
-  type validationField = z.infer<typeof schema>;
-
   const {
     register,
     handleSubmit,
@@ -32,17 +24,7 @@ export const InputNewTask = () => {
 
   const OnSubmit: SubmitHandler<validationField> = (data) => {
     setIsLoading(true);
-    api
-      .post("/createTask", {
-        task: data.task,
-      })
-      .then((response) => console.log(response.status))
-      .finally(() => {
-        setTimeout(() => {
-          setIsLoading(false);
-          location.reload();
-        }, 900);
-      });
+    postTask(data, setIsLoading);
   };
 
   return (
@@ -53,6 +35,7 @@ export const InputNewTask = () => {
         </CheckedBox>
         <InputField
           placeholder="Digite uma nova tarefa..."
+          type="text"
           {...register("task")}
         />
         {isLoading ? <Spinner /> : null}

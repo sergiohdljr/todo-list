@@ -10,6 +10,7 @@ interface Icustomize {
     border_r?: "0.3rem"
     max_h?: "370px"
     ovrflw?: "scroll"
+    background: "transparent" | "'hsl(0, 0%, 98%)'"
 }
 
 export const Container = styled.div<Icustomize>`
@@ -21,7 +22,7 @@ export const Container = styled.div<Icustomize>`
  scroll-behavior: smooth;
  height: ${props => props.h};
  margin: ${props => props.margin};
- background-color: transparent;
+ background-color: ${props => props.background};
  display: flex;
  flex-direction: column;
  gap: ${props => props.gap};

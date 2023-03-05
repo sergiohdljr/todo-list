@@ -22,7 +22,7 @@ export const App = () => {
   const getTask = () => api.get("/tasks").then((dados) => dados.data);
 
   const { data: tasks } = useQuery<Tasks[]>(
-    "tasks",
+    ["tasks"],
     async () => await getTask()
   );
 
@@ -39,7 +39,8 @@ export const App = () => {
           border_r={"0.3rem"}
           max_h={"370px"}
           ovrflw={"scroll"}
-        >
+          background={"'hsl(0, 0%, 98%)'"} 
+          >
           {tasks &&
             tasks.map((task) => (
               <Task 
