@@ -1,6 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { validationField } from "../components/input/interfaces";
-import { Client } from "./queryClient";
+import { validationField } from "../components/input/types";
 
 export const api: AxiosInstance = axios.create({
     baseURL: "http://localhost:3333/"

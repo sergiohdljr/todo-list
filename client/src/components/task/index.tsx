@@ -1,31 +1,12 @@
 import { Spinner } from "../input/style";
-import { useMutation } from "react-query";
 import { Tasks } from "../../App";
-import { HandleDeleteTask, ToggleCompleted } from "../../service/api";
-import { Client } from "../../service/queryClient";
 import { Check, CheckedBox } from "../input/style";
 import { DeleteTaskBtn, Tarefa, TaskTitle } from "./style";
-import { Iid } from "./types";
+import { UseMutateTasks } from "../../hooks/useMutateTasks";
 
 export const Task = ({ id, is_Completed, task }: Tasks) => {
   
-  const ToggleCompletedTask = useMutation({
-    mutationFn: async (data: Iid) => await ToggleCompleted(data.id),
-    onSuccess: () => {
-      setTimeout(() => {
-        Client.invalidateQueries({ queryKey: ["tasks"] });
-      }, 50);
-    },
-  });
-
-  const DeleteTask = useMutation({
-    mutationFn: async (data: Iid) => await HandleDeleteTask(data.id),
-    onSuccess: () => {
-      setTimeout(() => {
-        Client.invalidateQueries({ queryKey: ["tasks"] });
-      }, 900);
-    },
-  });
+const { ToggleCompletedTask, DeleteTask } = UseMutateTasks()
 
   return (
     <Tarefa>
