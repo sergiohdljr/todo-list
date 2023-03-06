@@ -5,12 +5,10 @@ import { HandleDeleteTask, ToggleCompleted } from "../../service/api";
 import { Client } from "../../service/queryClient";
 import { Check, CheckedBox } from "../input/style";
 import { DeleteTaskBtn, Tarefa, TaskTitle } from "./style";
+import { Iid } from "./types";
 
 export const Task = ({ id, is_Completed, task }: Tasks) => {
-  interface Iid {
-    id: string;
-  }
-
+  
   const ToggleCompletedTask = useMutation({
     mutationFn: async (data: Iid) => await ToggleCompleted(data.id),
     onSuccess: () => {

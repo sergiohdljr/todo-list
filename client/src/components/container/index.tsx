@@ -1,8 +1,5 @@
 import { Container } from "./style";
-
-type Icontainer = {
-  children: React.ReactNode;
-};
+import { Icontainer } from "./types";
 
 export const Wrapper = ({ children }: Icontainer) => {
   return (

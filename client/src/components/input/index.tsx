@@ -9,7 +9,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
-import { schema, validationField } from "./interfaces";
+import { schema, validationField } from "./types";
 import { useMutation } from "react-query";
 import { api, postTask } from "../../service/api";
 import { Client } from "../../service/queryClient";

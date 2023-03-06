@@ -1,5 +1,6 @@
 import styled, { DefaultTheme } from "styled-components";
 import checkIcon from '../../assets/icon-check.svg'
+import { IcheckedBox } from "./types";
 
 export const Input = styled.form`
 width: 100%;
@@ -24,11 +25,6 @@ export const CheckedBox = styled.div`
     display: flex;
     align-items: center;
 `
-
-export interface IcheckedBox {
-    isChecked: boolean
-}
-
 export const Check = styled.button<IcheckedBox>`
    width: 21px;
    height: 21px;

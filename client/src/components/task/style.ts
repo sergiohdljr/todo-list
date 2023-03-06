@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IcheckedBox } from "../input/style";
+import { IcheckedBox } from "../input/types";
 
 export const Tarefa = styled.div`
 width: 100%;
@@ -23,11 +23,7 @@ padding-top: 0.2rem;
 text-decoration:${props => props.isChecked ? "line-through" : null};
 `
 
-interface Delete {
-   onClick : () => void
-}
-
-export const DeleteTaskBtn = styled.button<Delete>`
+export const DeleteTaskBtn = styled.button`
 all: unset;
 width:25px;
 height: 100%;
