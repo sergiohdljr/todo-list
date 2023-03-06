@@ -27,4 +27,19 @@ export const Container = styled.div<Icustomize>`
  flex-direction: column;
  gap: ${props => props.gap};
  border-radius:${props => props.border_r};
+
+ ::-webkit-scrollbar{
+    width: 8px;
+    height: 100%;
+ }
+
+ ::-webkit-scrollbar-track{
+    border-radius: 0 0.3rem 0.3rem 0;
+    background-color: ${props => props.theme.colors.app};
+ }
+
+ ::-webkit-scrollbar-thumb{
+    border-radius: 0.3rem;
+    background-color: ${props => props.theme.colors.text};
+ }
 `

@@ -38,6 +38,4 @@ color:${props=>props.theme.colors.text};
 font-size: 0.8rem;
 font-weight: 200;
 cursor: pointer;
-
-
 `
