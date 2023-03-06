@@ -6,8 +6,8 @@ width: 100%;
 min-height: 54px;
 display: flex;
 gap: 0.3rem;
-padding: 0.5rem;
-background-color: ${props=>props.theme.colors.app};
+padding: 0 0 0 0.5rem;
+background-color: ${props => props.theme.colors.app};
 
  @media screen and (min-width:376px){
     height: 66px;
@@ -15,12 +15,18 @@ background-color: ${props=>props.theme.colors.app};
 `
 
 export const TaskTitle = styled.p<IcheckedBox>`
-color: ${props=>props.theme.colors.secundaryText};
+color: ${props => props.theme.colors.secundaryText};
 flex: 1;
 display: flex;
 align-items: center;
 padding-top: 0.2rem;
+font-size: 0.9rem;
 text-decoration:${props => props.isChecked ? "line-through" : null};
+opacity: ${props=> props.isChecked ? "70%" : null};
+ 
+@media screen and (min-width:376px){
+font-size: 1rem;
+ }
 `
 
 export const DeleteTaskBtn = styled.button`
@@ -30,8 +36,11 @@ height: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
-color:${props=>props.theme.colors.text};
-font-size: 0.8rem;
-font-weight: 200;
+border-radius: 50%;
 cursor: pointer;
+
+:hover{
+   opacity: 80%;
+}
+
 `
