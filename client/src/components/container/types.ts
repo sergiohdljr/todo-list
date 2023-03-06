@@ -8,7 +8,7 @@ export interface Icustomize {
     border_r?: "0.3rem"
     max_h?: "370px"
     ovrflw?: "scroll"
-    background: "transparent" | "'hsl(0, 0%, 98%)'"
+    background: "transparent" | string
 }
 
 export type Icontainer = {

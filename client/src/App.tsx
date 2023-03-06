@@ -39,7 +39,7 @@ export const App = () => {
           border_r={"0.3rem"}
           max_h={"370px"}
           ovrflw={"scroll"}
-          background={"'hsl(0, 0%, 98%)'"} 
+          background={theme.colors.app} 
           >
           {tasks &&
             tasks.map((task) => (
