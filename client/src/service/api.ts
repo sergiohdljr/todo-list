@@ -19,3 +19,9 @@ export const ToggleCompleted = async (id: string) => {
         .put(`toggleCompleteTask/${id}`)
         .then((reponse) => console.log(reponse.status));
 };
+
+export const HandleDeleteTask = async (id: string) => {
+    await api
+        .delete(`/deleteTask/${id}`)
+        .then((response) => console.log(response.status))
+};

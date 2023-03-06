@@ -1,18 +1,12 @@
+import { Spinner } from "../input/style";
 import { useMutation } from "react-query";
 import { Tasks } from "../../App";
-import { api, ToggleCompleted } from "../../service/api";
+import { HandleDeleteTask, ToggleCompleted } from "../../service/api";
 import { Client } from "../../service/queryClient";
 import { Check, CheckedBox } from "../input/style";
-import { DeleteTask, Tarefa, TaskTitle } from "./style";
+import { DeleteTaskBtn, Tarefa, TaskTitle } from "./style";
 
 export const Task = ({ id, is_Completed, task }: Tasks) => {
-  const HandleDeleteTask = async (id: string) => {
-    await api
-      .delete(`/deleteTask/${id}`)
-      .then((response) => console.log(response.status));
-    location.reload();
-  };
-
   interface Iid {
     id: string;
   }
@@ -26,16 +20,28 @@ export const Task = ({ id, is_Completed, task }: Tasks) => {
     },
   });
 
+  const DeleteTask = useMutation({
+    mutationFn: async (data: Iid) => await HandleDeleteTask(data.id),
+    onSuccess: () => {
+      setTimeout(() => {
+        Client.invalidateQueries({ queryKey: ["tasks"] });
+      }, 900);
+    },
+  });
+
   return (
     <Tarefa>
       <CheckedBox>
         <Check
+          type="button"
           isChecked={is_Completed}
           onClick={() => ToggleCompletedTask.mutate({ id })}
         />
       </CheckedBox>
       <TaskTitle isChecked={is_Completed}>{task}</TaskTitle>
-      <DeleteTask onClick={() => HandleDeleteTask(id)}>X</DeleteTask>
+      <DeleteTaskBtn type="button" onClick={() => DeleteTask.mutate({ id })}>
+        {DeleteTask.isLoading ? <Spinner /> : "X"}
+      </DeleteTaskBtn>
     </Tarefa>
   );
 };

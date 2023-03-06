@@ -23,7 +23,11 @@ padding-top: 0.2rem;
 text-decoration:${props => props.isChecked ? "line-through" : null};
 `
 
-export const DeleteTask = styled.button`
+interface Delete {
+   onClick : () => void
+}
+
+export const DeleteTaskBtn = styled.button<Delete>`
 all: unset;
 width:25px;
 height: 100%;
