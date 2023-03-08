@@ -6,7 +6,7 @@ import { UseMutateTasks } from "../../hooks/useMutateTasks";
 import { CrossIcon } from "../crossIcon";
 
 export const Task = ({ id, is_Completed, task }: Tasks) => {
-const { ToggleCompletedTask, DeleteTask } = UseMutateTasks()
+  const { ToggleCompletedTask, DeleteTask } = UseMutateTasks();
 
   return (
     <Tarefa>
@@ -19,7 +19,7 @@ const { ToggleCompletedTask, DeleteTask } = UseMutateTasks()
       </CheckedBox>
       <TaskTitle isChecked={is_Completed}>{task}</TaskTitle>
       <DeleteTaskBtn type="button" onClick={() => DeleteTask.mutate({ id })}>
-        {DeleteTask.isLoading ? <Spinner /> : <CrossIcon width="21" height="21" />}
+        {DeleteTask.isLoading ? (<Spinner />) : (<CrossIcon width="21" height="21" /> ) }
       </DeleteTaskBtn>
     </Tarefa>
   );
