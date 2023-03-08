@@ -1,12 +1,13 @@
 import { useMutation } from "react-query";
 import { Iid } from "../../components/task/types";
-import { HandleDeleteTask, ToggleCompleted } from "../../service/api";
-import { Client } from "../../service/queryClient";
+import { Client } from "../../lib/queryClient";
+import { handleDeleteTask } from "../../utils/deleteTask";
+import { toggleCompletedTask } from "../../utils/toggleCompleted";
 
 export const UseMutateTasks = () => {
 
     const ToggleCompletedTask = useMutation({
-        mutationFn: async (data: Iid) => await ToggleCompleted(data.id),
+        mutationFn: async (data: Iid) => await toggleCompletedTask(data.id),
         onSuccess: () => {
             setTimeout(() => {
                 Client.invalidateQueries({ queryKey: ["tasks"] });
@@ -15,7 +16,7 @@ export const UseMutateTasks = () => {
     });
 
     const DeleteTask = useMutation({
-        mutationFn: async (data: Iid) => await HandleDeleteTask(data.id),
+        mutationFn: async (data: Iid) => await handleDeleteTask(data.id),
         onSuccess: () => {
             setTimeout(() => {
                 Client.invalidateQueries({ queryKey: ["tasks"] });

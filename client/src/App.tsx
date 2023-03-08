@@ -5,7 +5,7 @@ import { Container } from "./components/container/style";
 import { Header } from "./components/header";
 import { InputNewTask } from "./components/input";
 import { Task } from "./components/task";
-import { api } from "./service/api";
+import { api } from "./lib/axiosConfig";
 import { UsethemeStore } from "./store";
 import { GlobalStyle } from "./styles/global";
 

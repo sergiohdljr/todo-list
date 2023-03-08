@@ -11,8 +11,8 @@ import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
 import { schema, validationField } from "./types";
 import { useMutation } from "react-query";
-import { api, postTask } from "../../service/api";
-import { Client } from "../../service/queryClient";
+import { Client } from "../../lib/queryClient";
+import { postTask } from "../../utils/postTask";
 
 export const InputNewTask = () => {
   const {
