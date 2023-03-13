@@ -14,7 +14,7 @@ export async function appRoutes(app: FastifyInstance) {
         await prisma.tarefas.create({
             data: {
                 task: task
-                
+
             }
         })
     })
@@ -33,19 +33,6 @@ export async function appRoutes(app: FastifyInstance) {
         return completedTasks
     })
 
-    app.delete('/deleteTask/:id', async (request) => {
-        const deleteTaskSchema = z.object({
-            id: z.string()
-        })
-
-        const { id } = deleteTaskSchema.parse(request.params)
-
-        await prisma.tarefas.delete({
-            where: {
-                id: id
-            }
-        })
-    })
 
     app.put('/toggleCompleteTask/:id', async (request) => {
         const toggleCompleteSchema = z.object({
@@ -73,24 +60,46 @@ export async function appRoutes(app: FastifyInstance) {
         })
     })
 
-    app.delete('/deleteTask/{:id}', async (request) => {
-        const idSchemaDelete = z.object({
+    app.put('/editTask/:id', async (request) => {
+        const requestSchema = z.object({
             id: z.string()
         })
+        const bodySchema = z.object({
+            taskTitle: z.string()
+        })
 
-        const { id } = idSchemaDelete.parse(request.params)
+        const { id } = requestSchema.parse(request.params)
+        const { taskTitle } = bodySchema.parse(request.body)
 
-        await prisma.tarefas.delete({
+        await prisma.tarefas.update({
             where: {
                 id: id
+            },
+            data: {
+                task: taskTitle
             }
         })
+
     })
 
     app.delete('/deleteCompletedTasks', async () => {
         await prisma.tarefas.deleteMany({
             where: {
                 is_Completed: true
+            }
+        })
+    })
+
+    app.delete('/deleteTask/:id', async (request) => {
+        const deleteTaskSchema = z.object({
+            id: z.string()
+        })
+
+        const { id } = deleteTaskSchema.parse(request.params)
+
+        await prisma.tarefas.delete({
+            where: {
+                id: id
             }
         })
     })
