@@ -64,8 +64,9 @@ export const ErrorMessage = styled.p`
 margin-top: 0.3rem;
 font-size: 0.8rem;
 color: ${props => props.theme.colors.errorMessage};
+
  @media screen and (min-width:376px){
- font-size: 1rem;
+ font-size: 0.8rem;
  }
 `
 export const Spinner = styled.div`

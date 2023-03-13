@@ -13,3 +13,13 @@ export const UsethemeStore = create<IthemeStore>((set) => ({
     theme: lightTheme,
     setTheme: () => set((state) => ({ theme: state.theme.title === 'light' ? darkTheme : lightTheme }))
 }))
+
+interface ImodalOpen {
+    open : boolean
+    setModal: ()=> void
+}
+
+export const ModalStore = create<ImodalOpen>((set)=>({
+    open: false,
+    setModal: () => set((state)=> ({open:state.open ? false : true}))
+}))

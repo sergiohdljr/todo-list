@@ -42,5 +42,6 @@ cursor: pointer;
 :hover{
    opacity: 80%;
 }
-
 `
+
+export const EditTaskBtn = styled(DeleteTaskBtn)``
