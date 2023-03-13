@@ -41,11 +41,13 @@ Você pode acessar a API do servidor usando os seguintes endpoints:
 - `toggleCompleteTask/:id`: Toggle de completa ou incompleta tarefa `id`.
   - Params:
     - `id: String (required)`: id da tarefa que você deseja efetuar a operação.
-  - `EditTask/:id`: Editar titulo de tarefas já registradas.
-    - Params: 
+    
+- `EditTask/:id`: Editar titulo de tarefas já registradas.
+   - Params: 
      - `id: String (required)`: id da tarefa que você deseja efetuar a operação.
-    - Body: 
+   - Body: 
      - `taskTitle: String(required)`: Novo titulo da tarefa que você deseja modificar.
+     
 ### `DELETE`
 
 - `/deleteTask/:id`: Deleta a tarefa específica de acordo com seu `id`.
