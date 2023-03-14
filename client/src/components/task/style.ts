@@ -5,6 +5,7 @@ export const Tarefa = styled.div`
 width: 100%;
 min-height: 54px;
 display: flex;
+align-items: center;
 gap: 0.3rem;
 padding: 0 0 0 0.5rem;
 background-color: ${props => props.theme.colors.app};

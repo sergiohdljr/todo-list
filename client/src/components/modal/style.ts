@@ -27,30 +27,13 @@ export const ModalContent = styled.div`
     align-items: center;
     gap:0.3rem;
     transition: all 0.2s ease-out;
+`
 
-    .button--close{
-        cursor: pointer;
-        display: flex;
-        align-self: flex-end;
-        background-color: transparent;
-        border: none;
-
-        :hover{
-            opacity: 40%;
-        }
-    }
-
-     h3{
-        font-weight: 500;
-        font-size: 1.2rem;
-        color:${props => props.theme.colors.secundaryText}
-     }
-
-    form{
+export const Form = styled.form`
         width: 95%;
         height: 80%;
     
-        .form-div{
+        div{
         width: 100%;
         height: auto;
         display: flex;
@@ -58,8 +41,8 @@ export const ModalContent = styled.div`
         justify-content: center;
         align-items: center;
         }
-
-        input{
+`
+export const FildForm = styled.input`
             flex-grow: 1;
             width: 70%;
             height: 40px;
@@ -73,9 +56,8 @@ export const ModalContent = styled.div`
             ::placeholder{
                 color: ${props => props.theme.colors.secundaryText}
             }
-        }
-
-        button{
+`
+export const EditTaskButton = styled.button`
             cursor: pointer;
             display: flex;
             justify-content: center;
@@ -89,6 +71,22 @@ export const ModalContent = styled.div`
                  opacity: 75%;
                  background: linear-gradient(to bottom right,hsl(280, 87%, 65%),hsl(192, 100%, 67%))
             }
+`
+      
+export const CloseButton = styled.button`
+        cursor: pointer;
+        display: flex;
+        align-self: flex-end;
+        background-color: transparent;
+        border: none;
+
+        :hover{
+            opacity: 40%;
         }
-    }
+`
+
+export const Title = styled.h3`
+        font-weight: 500;
+        font-size: 1.2rem;
+        color:${props => props.theme.colors.secundaryText}
 `
