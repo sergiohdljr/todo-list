@@ -2,6 +2,7 @@ import { useMutation } from "react-query";
 import { Iid } from "../../components/task/types";
 import { Client } from "../../lib/queryClient";
 import { ModalStore } from "../../store";
+import { DeleteCompleteTasks } from "../../utils/deletedCompletedTasks";
 import { handleDeleteTask } from "../../utils/deleteTask";
 import { editTask, IeditTask } from "../../utils/editTask";
 import { toggleCompletedTask } from "../../utils/toggleCompleted";
@@ -38,6 +39,15 @@ export const UseMutateTasks = () => {
         }
     })
 
-    return { ToggleCompletedTask, DeleteTask, EditTask }
+    const DeleteCompletedTasks = useMutation({
+      mutationFn: async () => DeleteCompleteTasks(),
+      onSuccess: ()=>{
+          setTimeout(()=>{
+            Client.invalidateQueries({ queryKey: ["tasks"]})
+          }, 250)
+      }        
+    })
+
+    return { ToggleCompletedTask, DeleteTask, EditTask, DeleteCompletedTasks }
 }
 

@@ -9,6 +9,7 @@ export interface Icustomize {
     max_h?: "370px"
     ovrflw?: "scroll"
     background: "transparent" | string
+    justify_c?: "space-between" 
 }
 
 export type Icontainer = {
