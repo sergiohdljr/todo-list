@@ -4,7 +4,6 @@ import { Wrapper } from "./components/container";
 import { Container } from "./components/container/style";
 import { Header } from "./components/header";
 import { InputNewTask } from "./components/input";
-import { ModalEdit } from "./components/modal";
 import { Task } from "./components/task";
 import { api } from "./lib/axiosConfig";
 import { ModalStore, UsethemeStore } from "./store";
@@ -20,7 +19,6 @@ export interface Tasks {
 export const App = () => {
   
   const { theme } = UsethemeStore();
-  const { open} = ModalStore()
 
   const getTask = () => api.get("/tasks").then((dados) => dados.data);
 
@@ -31,7 +29,6 @@ export const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      {open ? (<ModalEdit/>) : null }
       <GlobalStyle />
       <Wrapper>
         <Header />

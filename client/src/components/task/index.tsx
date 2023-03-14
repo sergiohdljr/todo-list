@@ -6,6 +6,7 @@ import { UseMutateTasks } from "../../hooks/useMutateTasks";
 import { CrossIcon } from "../crossIcon";
 import { ModalStore } from "../../store";
 import { EditTaskIcon } from "../editIcon";
+import { EditarTarefa } from "../modal";
 
 export const Task = ({ id, is_Completed, task }: Tasks) => {
   const { ToggleCompletedTask, DeleteTask } = UseMutateTasks();
@@ -22,9 +23,6 @@ export const Task = ({ id, is_Completed, task }: Tasks) => {
           />
         </CheckedBox>
         <TaskTitle isChecked={is_Completed}>{task}</TaskTitle>
-        <EditTaskBtn onClick={() => setModal()}>
-          <EditTaskIcon />
-        </EditTaskBtn>
         <DeleteTaskBtn type="button" onClick={() => DeleteTask.mutate({ id })}>
           {DeleteTask.isLoading ? <Spinner /> : <CrossIcon />}
         </DeleteTaskBtn>

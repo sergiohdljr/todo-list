@@ -2,6 +2,7 @@ import { useMutation } from "react-query";
 import { Iid } from "../../components/task/types";
 import { Client } from "../../lib/queryClient";
 import { handleDeleteTask } from "../../utils/deleteTask";
+import { editTask, IeditTask } from "../../utils/editTask";
 import { toggleCompletedTask } from "../../utils/toggleCompleted";
 
 export const UseMutateTasks = () => {
@@ -24,6 +25,15 @@ export const UseMutateTasks = () => {
         },
     });
 
-    return { ToggleCompletedTask, DeleteTask }
+    const EditTask = useMutation({
+        mutationFn: async (data: IeditTask) => await editTask(data),
+        onSuccess: () => {
+            setTimeout(() => {
+                Client.invalidateQueries({ queryKey: ["tasks"] });
+            }, 50);
+        }
+    })
+
+    return { ToggleCompletedTask, DeleteTask, EditTask }
 }
 
