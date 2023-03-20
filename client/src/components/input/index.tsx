@@ -18,7 +18,9 @@ export const InputNewTask = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
+    
   } = useForm<validationField>({ resolver: zodResolver(schema) });
 
   const addNewTask = useMutation({
@@ -27,6 +29,7 @@ export const InputNewTask = () => {
       setTimeout(() => {
         Client.invalidateQueries({ queryKey: ["tasks"] });
       }, 900);
+      reset()
     },
   });
 
