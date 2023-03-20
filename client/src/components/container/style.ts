@@ -13,6 +13,7 @@ export const Container = styled.div<Icustomize>`
  background-color: ${props => props.background};
  display: flex;
  flex-direction: column;
+ justify-content: ${props=>props.justify_c};
  gap: ${props => props.gap};
  border-radius:${props => props.border_r};
 

@@ -13,20 +13,25 @@ export const Task = ({ id, is_Completed, task }: Tasks) => {
   const { open, setModal } = ModalStore();
 
   return (
+    <>
+    {open ? (<EditarTarefa id={id}/>): null}
     <div>
       <Tarefa>
         <CheckedBox>
           <Check
             type="button"
             isChecked={is_Completed}
-            onClick={() => ToggleCompletedTask.mutate({ id })}
-          />
+            onClick={() => ToggleCompletedTask.mutate({ id })}/>
         </CheckedBox>
         <TaskTitle isChecked={is_Completed}>{task}</TaskTitle>
+        <EditTaskBtn onClick={() => setModal()}>
+        <EditTaskIcon />
+      </EditTaskBtn>
         <DeleteTaskBtn type="button" onClick={() => DeleteTask.mutate({ id })}>
           {DeleteTask.isLoading ? <Spinner /> : <CrossIcon />}
         </DeleteTaskBtn>
       </Tarefa>
     </div>
+    </>
   );
 };
