@@ -2,10 +2,7 @@ import { useMutation, useQuery } from "react-query";
 import { ThemeProvider } from "styled-components";
 import { Wrapper } from "./components/container";
 import { Container } from "./components/container/style";
-import {
-  ButtonCleanCompletedTasks,
-  DetailsTasks,
-} from "./components/Details/style";
+import { ButtonCleanCompletedTasks,DetailsTasks} from "./components/Details/style";
 import { Header } from "./components/header";
 import { InputNewTask } from "./components/input";
 import { Task } from "./components/task";
@@ -26,10 +23,7 @@ export const App = () => {
   const { DeleteCompletedTasks } = UseMutateTasks();
 
   const { theme } = UsethemeStore();
-  const { data: tasks } = useQuery<Tasks[]>(
-    ["tasks"],
-    async () => await getTask()
-  );
+  const { data: tasks } = useQuery<Tasks[]>(["tasks"],async () => await getTask());
 
   return (
     <ThemeProvider theme={theme}>
