@@ -17,7 +17,10 @@ export const Container = styled.div<Icustomize>`
  gap: ${props => props.gap};
  border-radius:${props => props.border_r};
 
- ::-webkit-scrollbar{
+ .tasks--Container{
+   overflow-x:hidden;
+   overflow-y: scroll;
+   ::-webkit-scrollbar{
     width: 8px;
     height: 100%;
  }
@@ -30,5 +33,7 @@ export const Container = styled.div<Icustomize>`
  ::-webkit-scrollbar-thumb{
     border-radius: 0.3rem;
     background-color: ${props => props.theme.colors.text};
+ }
+
  }
 `
